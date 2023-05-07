@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AsFnuQeMs1mlDBsehlC/tKjg5ggIHMiuwCvVva7WIgw=",
+  "Hash": "K1mW7nukBUTlo+gUYri1O/sYCW9N1zhasvuTHXsq1SI=",
   "Source": "ComprasDeSupermercado",
   "BasePath": "_content/ComprasDeSupermercado",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\css\\sweetalert2.min.css",
+      "SourceId": "ComprasDeSupermercado",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\",
+      "BasePath": "_content/ComprasDeSupermercado",
+      "RelativePath": "css/sweetalert2.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\sweetalert2.min.css"
     },
     {
       "Identity": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\favicon.ico",
@@ -185,6 +202,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\js\\sweetalert2.min.js",
+      "SourceId": "ComprasDeSupermercado",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\",
+      "BasePath": "_content/ComprasDeSupermercado",
+      "RelativePath": "js/sweetalert2.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\sweetalert2.min.js"
     },
     {
       "Identity": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",

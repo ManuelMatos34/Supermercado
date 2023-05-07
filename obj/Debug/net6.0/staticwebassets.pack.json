@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\css\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\css\\sweetalert2.min.css"
+    },
+    {
       "Id": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
@@ -35,6 +39,10 @@
     {
       "Id": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\js\\sweetalert2.min.js",
+      "PackagePath": "staticwebassets\\js\\sweetalert2.min.js"
     },
     {
       "Id": "D:\\MVC\\ComprasDeSupermercado\\wwwroot\\lib\\bootstrap\\LICENSE",

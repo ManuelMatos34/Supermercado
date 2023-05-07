@@ -36,6 +36,17 @@ namespace ComprasDeSupermercado.Controllers
                 usuario.Rol = "Usuario";
                 _context.Usuarios.Add(usuario);
                 _context.SaveChanges();
+
+                TempData["Titulo"] = "Confirmacion";
+                TempData["Mensaje"] = "Registro realizado correctamente";
+                TempData["Tipo"] = "success";
+            }
+            else
+            {
+                TempData["Titulo"] = "error";
+                TempData["Mensaje"] = "Las contraseñas no son iguales";
+                TempData["Tipo"] = "error";
+
             }
 
             return RedirectToAction("Inicio", "InicioRegistro");
