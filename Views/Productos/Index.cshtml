@@ -1,0 +1,193 @@
+﻿@model Producto
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <div class="container-table m-3 p-3">
+            <div class="col-md-4">
+                <a class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#Modal1">
+                    Agregar Producto
+                </a>
+            </div>
+            <h3 class="m-2 p-2">Productos</h3>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID Producto</th>
+                            <th>Nombre Producto</th>
+                            <th>Precio</th>
+                            <th>Descripcion</th>
+                            <th>Marca</th>
+                            <th>SuperMercado</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (Producto item in ViewBag.Productos)
+                        {
+                            <tr>
+                                <td>@item.IdProducto</td>
+                                <td>@item.NombreProducto</td>
+                                <td>@item.PrecioProducto $RD</td>
+                                <td>@item.DescripcionProducto</td>
+                                <td>@item.Marca</td>
+                                <td>@item.Supermercado</td>
+                                <td><button onclick="mostrarProductosActualizar('@item.IdProducto')" class="button-desing btn btn-danger">Actualizar</button></td>
+                                <td><a asp-controller="Productos" asp-action="Eliminar" asp-route-id="@item.IdProducto" class="btn btn-danger button-desing">Eliminar</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="pagination-foot">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const productosUrl = '@Url.Action("ListarProductos", "Productos")';
+            const actualizarUrl = '@Url.Action("Actualizar", "Productos")';
+        </script>
+
+    @*Agregar producto*@
+
+    <div class="modal fade" id="Modal1" tabindex="-1" aria-labelledby="ModalLabel1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabel1">Agregar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="m-3 p-3" asp-controller="Productos" asp-action="Crear" method="post">
+                        <div class="form-floating mb-3">
+                            <input asp-for="NombreProducto" class="form-control" id="floatingInput-1" required />
+                            <label>Nombre del Producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="PrecioProducto" class="form-control" id="floatingInput-2" required />
+                            <label>Precio del Producto</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea asp-for="DescripcionProducto" class="form-control" id="floatingTextarea" style="height: 100px" required></textarea>
+                            <label>Descripcion del producto</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <select asp-for="Marca" class="form-select" id="marcaProducto" required>
+                                        <option selected>Marca</option>
+                                        @foreach (Marca item in ViewBag.Marcas)
+                                        {
+                                            <option>@item.NombreMarca</option>
+                                        }
+                                    </select>
+                                    <label>Marca</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <select asp-for="Supermercado" class="form-select" id="superProducto" required>
+                                        <option selected>SuperMercado</option>
+                                        @foreach (Supermercado item in ViewBag.SuperMercados)
+                                        {
+                                            <option>@item.NombreSupermercado</option>
+                                        }
+                                    </select>
+                                    <label>SuperMercado</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid m-1 p-1">
+                            <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit">
+                                Agregar
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Actualizar producto*@
+
+    <div class="modal fade" id="Modal3" tabindex="-1" aria-labelledby="ModalLabel3" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="ModalLabel3">Actualizar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input asp-for="IdProducto" value="" id="input-hidden-id" hidden />
+                        <div class="form-floating mb-3">
+                            <input asp-for="NombreProducto" class="form-control" id="Input-1" required />
+                            <label>Nombre del Producto</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input asp-for="PrecioProducto" class="form-control" id="Input-2" required />
+                            <label>Precio del Producto</label>
+                        </div>
+                        <div class="form-floating">
+                            <textarea asp-for="DescripcionProducto" class="form-control" id="Textarea-1" style="height: 100px" required></textarea>
+                            <label>Descripcion del producto</label>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <select asp-for="Marca" class="form-select" id="marcaProducto" required>
+                                        @foreach (Marca item in ViewBag.Marcas)
+                                        {
+                                            <option>@item.NombreMarca</option>
+                                        }
+                                    </select>
+                                    <label>Marca</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating">
+                                    <select asp-for="Supermercado" class="form-select" id="superProducto" required>
+                                        @foreach (Supermercado item in ViewBag.SuperMercados)
+                                        {
+                                            <option>@item.NombreSupermercado</option>
+                                        }
+                                    </select>
+                                    <label>SuperMercado</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                            <button id="refresh" type="submit" class="btn btn-success btn-actualizar">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+</html>

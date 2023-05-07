@@ -1,0 +1,158 @@
+USE [Sistema_Prestamos]
+GO
+/****** Object:  Table [dbo].[OTROS_BANCOS]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[OTROS_BANCOS](
+	[Id] [varchar](25) NOT NULL,
+	[Descripcion] [varchar](150) NOT NULL,
+	[Estatus] [varchar](1) NOT NULL,
+	[Mensaje] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Prestamos]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Prestamos](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[CantidadDinero] [int] NULL,
+	[TiempoPago] [varchar](25) NULL,
+	[PropositoPrestamo] [varchar](50) NULL,
+	[MONTO_DEPOSITADO] [int] NULL,
+	[FECHA_TRANSACCION] [date] NULL,
+	[MONTO_AMORTIZACION] [int] NULL,
+	[TipoVivienda] [varchar](25) NULL,
+	[OtrosBancos] [varchar](25) NULL,
+	[trabajo] [varchar](25) NULL,
+	[USUARIO_ID] [varchar](50) NULL,
+	[FechaSolicitud] [date] NULL,
+	[Estatus] [varchar](1) NULL,
+	[Mensaje] [varchar](100) NULL,
+ CONSTRAINT [PK__Prestamo__3214EC074A0A9B46] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[PROPOSITO_PRESTAMO]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[PROPOSITO_PRESTAMO](
+	[Id] [varchar](50) NOT NULL,
+	[Descripcion] [varchar](150) NOT NULL,
+	[Estatus] [varchar](1) NOT NULL,
+	[Mensaje] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[Id] [varchar](50) NOT NULL,
+	[Descripcion] [varchar](150) NOT NULL,
+	[Estatus] [varchar](1) NOT NULL,
+	[Mensaje] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[TRABAJO]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[TRABAJO](
+	[Id] [varchar](25) NOT NULL,
+	[Descripcion] [varchar](150) NOT NULL,
+	[Estatus] [varchar](1) NOT NULL,
+	[Mensaje] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Usuarios]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Usuarios](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[ID_USUARIO] [varchar](50) NULL,
+	[USUARIO_NOMBRE] [varchar](30) NULL,
+	[USUARIO_Apellido] [varchar](50) NULL,
+	[CLAVE] [varchar](100) NULL,
+	[CEDULA] [varchar](25) NULL,
+	[DIRECCION] [varchar](100) NULL,
+	[TELEFONO] [int] NULL,
+	[TELEFONO_CASA] [int] NULL,
+	[EMAIL] [varchar](50) NULL,
+	[ESTATUS] [varchar](1) NULL,
+	[MENSAJE] [varchar](100) NULL,
+	[ID_ROLES] [varchar](50) NULL,
+ CONSTRAINT [PK__Usuarios__3214EC07D3C8B45B] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[VIVIENDAS]    Script Date: 5/6/2023 8:04:36 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[VIVIENDAS](
+	[Id] [varchar](25) NOT NULL,
+	[Descripcion] [varchar](150) NOT NULL,
+	[Estatus] [varchar](1) NOT NULL,
+	[Mensaje] [varchar](100) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Prestamos]  WITH CHECK ADD  CONSTRAINT [FK__Prestamos__Otros__245D67DE] FOREIGN KEY([OtrosBancos])
+REFERENCES [dbo].[OTROS_BANCOS] ([Id])
+GO
+ALTER TABLE [dbo].[Prestamos] CHECK CONSTRAINT [FK__Prestamos__Otros__245D67DE]
+GO
+ALTER TABLE [dbo].[Prestamos]  WITH CHECK ADD  CONSTRAINT [FK__Prestamos__Propo__22751F6C] FOREIGN KEY([PropositoPrestamo])
+REFERENCES [dbo].[PROPOSITO_PRESTAMO] ([Id])
+GO
+ALTER TABLE [dbo].[Prestamos] CHECK CONSTRAINT [FK__Prestamos__Propo__22751F6C]
+GO
+ALTER TABLE [dbo].[Prestamos]  WITH CHECK ADD  CONSTRAINT [FK__Prestamos__TipoV__236943A5] FOREIGN KEY([TipoVivienda])
+REFERENCES [dbo].[VIVIENDAS] ([Id])
+GO
+ALTER TABLE [dbo].[Prestamos] CHECK CONSTRAINT [FK__Prestamos__TipoV__236943A5]
+GO
+ALTER TABLE [dbo].[Prestamos]  WITH CHECK ADD  CONSTRAINT [FK__Prestamos__traba__25518C17] FOREIGN KEY([trabajo])
+REFERENCES [dbo].[TRABAJO] ([Id])
+GO
+ALTER TABLE [dbo].[Prestamos] CHECK CONSTRAINT [FK__Prestamos__traba__25518C17]
+GO
+ALTER TABLE [dbo].[Usuarios]  WITH CHECK ADD  CONSTRAINT [FK__Usuarios__ID_ROL__2180FB33] FOREIGN KEY([ID_ROLES])
+REFERENCES [dbo].[Roles] ([Id])
+GO
+ALTER TABLE [dbo].[Usuarios] CHECK CONSTRAINT [FK__Usuarios__ID_ROL__2180FB33]
+GO

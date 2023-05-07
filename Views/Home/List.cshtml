@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<body>
+    <hr />
+    <h2 class="m-3">Lista de @User.Identity.Name</h2>
+    <hr />
+    <div class="container-table m-3">
+        <h3 class="m-2 p-2">Productos Disponibles</h3>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Marca</th>
+                        <th>SuperMercado</th>
+                        <th>Fecha de Creacion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (List item in ViewBag.Lista)
+                    {
+                        <tr>
+                            <td>@item.Productos</td>
+                            <td>@item.Precio</td>
+                            <td>@item.Marca</td>
+                            <td>@item.Supermercado</td>
+                            <td>@item.Fecha</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="pagination-foot">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

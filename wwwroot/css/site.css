@@ -1,0 +1,54 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.button-desing {
+    width: 100%;
+}
+
+/* Pagination styles */
+
+.pagination-foot {
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+
+.pagination > li > a {
+    background-color: white;
+    color: red;
+}
+
+    .pagination > li > a:focus,
+    .pagination > li > a:hover,
+    .pagination > li > span:focus,
+    .pagination > li > span:hover {
+        color: red;
+        background-color: #eee;
+        border-color: red;
+    }
+
+.pagination > .active > a {
+    color: white;
+    background-color: red;
+    border: solid 1px red;
+}
+
+    .pagination > .active > a:hover {
+        background-color: red;
+        border: solid 1px red;
+    }

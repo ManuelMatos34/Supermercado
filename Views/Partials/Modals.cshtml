@@ -1,0 +1,133 @@
+﻿
+
+
+@*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+@*Agregar Marca*@
+
+<div class="modal fade" id="Modal4" tabindex="-1" aria-labelledby="ModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel4">Agregar Marca</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="m-3 p-3" asp-controller="Marcas" asp-action="Crear" method="post">
+                    <div class="form-floating mb-3">
+                        <input name="nom_marca" type="text" class="form-control" id="floatingInput-1" required />
+                        <label for="floatingInput-1">Nombre de la Marca</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="desc_marca" class="form-control" id="floatingTextarea" style="height: 100px" required></textarea>
+                        <label for="floatingTextarea">Descripcion de la Marca</label>
+                    </div>
+                    <div class="d-grid m-1 p-1">
+                        <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit">
+                            Agregar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Actualizar marca*@
+
+<div class="modal fade" id="Modal5" tabindex="-1" aria-labelledby="ModalLabel5" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel5">Actualizar Producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-floating mb-3">
+                        <input name="nom_marca" type="text" class="form-control" id="nMarca" readonly/>
+                        <label>Nombre de la Marca</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="desc_marca" class="form-control" id="dMarca" style="height: 100px" required></textarea>
+                        <label>Descripcion de la Marca</label>
+                    </div>
+                    <div class="d-grid m-1 p-1">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button id="refresh" type="submit" class="btn btn-success btn-actualizar_m">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*@
+
+@*Agregar Supermercado*@
+
+<div class="modal fade" id="Modal6" tabindex="-1" aria-labelledby="ModalLabel6" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel6">Agregar Supermercado</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="m-3 p-3" asp-controller="SuperMercados" asp-action="Crear" method="post">
+                    <div class="form-floating mb-3">
+                        <input name="nom_superm" type="text" class="form-control" id="nom_superm" required />
+                        <label>Nombre del supermercado</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="direc_superm" class="form-control" id="direc_superm" style="height: 60px" required></textarea>
+                        <label>Direccion del supermercado</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="desc_superm" class="form-control" id="desc_superm" style="height: 100px" required></textarea>
+                        <label>Descripcion del supermercado</label>
+                    </div>
+                    <div class="d-grid m-1 p-1">
+                        <button class="btn btn-danger btn-login text-uppercase fw-bold" type="submit">
+                            Agregar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Actualizar Supermercado*@
+
+<div class="modal fade" id="Modal7" tabindex="-1" aria-labelledby="ModalLabel7" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="ModalLabel7">Actualizar Supermercado</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-floating mb-3">
+                        <input name="nSuperm" type="text" class="form-control" id="nSuperm" readonly/>
+                        <label>Nombre del supermercado</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="dirSuperm" class="form-control" id="dirSuperm" style="height: 60px" required></textarea>
+                        <label>Direccion del supermercado</label>
+                    </div>
+                    <div class="form-floating">
+                        <textarea name="desSuperm" class="form-control" id="desSuperm" style="height: 100px" required></textarea>
+                        <label>Descripcion del supermercado</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                        <button id="refresh" type="submit" class="btn btn-success btn-actualizar_s">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

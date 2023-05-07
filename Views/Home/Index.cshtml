@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<body>
+    <hr />
+    <div class="row m-3">
+        <div class="col-md-4">
+            <form asp-controller="Home" asp-action="Index" class="d-flex align-items-center">
+                <select class="form-select flex-grow-1 m-1" id="filtro" name="marca">
+                    <option value="" selected disabled>Marca</option>
+                    @foreach (Marca item in ViewBag.Marcas)
+                    {
+                        <option>@item.NombreMarca</option>
+                    }
+                </select>
+                <select class="form-select flex-grow-1 m-1" id="filtro" name="superMercado">
+                    <option value="" selected disabled>SuperMercado</option>
+                    @foreach (Supermercado item in ViewBag.SuperMercados)
+                    {
+                        <option>@item.NombreSupermercado</option>
+                    }
+                </select>
+                <input name="buscador" class="form-control flex-grow-1 m-1" type="text" id="buscar" placeholder="nombre producto..." />
+                <button title="Buscar" class="btn btn-success m-1" type="submit">buscar</button>
+                <button title="Refrescar" class="btn btn-success m-1" type="submit">refrescar</button>
+            </form>
+        </div>
+    </div>
+    <hr />
+    <div class="container-table m-3 p-3">
+        <h3 class="m-2 p-2">Productos</h3>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Nombre Producto</th>
+                        <th>Precio</th>
+                        <th>Descripcion</th>
+                        <th>Marca</th>
+                        <th>SuperMercado</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Producto item in ViewBag.Productos)
+                    {
+                        <tr>
+                            <td>@item.NombreProducto</td>
+                            <td>@item.PrecioProducto $RD</td>
+                            <td>@item.DescripcionProducto</td>
+                            <td>@item.Marca</td>
+                            <td>@item.Supermercado</td>
+                            <td><a asp-controller="Home" asp-action="AgregarLista" asp-route-producto="@item.IdProducto" asp-route-creador="@User.Identity.Name" asp-route-marca="@item.Marca" 
+                                asp-route-supermercado="@item.Supermercado" asp-route-precio="@item.PrecioProducto" class="btn btn-danger button-desing">Añadir a Lista</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="pagination-foot">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
